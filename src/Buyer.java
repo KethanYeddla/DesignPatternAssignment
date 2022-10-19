@@ -1,5 +1,3 @@
-package src;
-
 public class Buyer extends Person {
 
 	private Seller seller;
@@ -7,6 +5,11 @@ public class Buyer extends Person {
 	private Person person;
 
 	public void showMenu() {
+
+	}
+
+	@Override
+	public void showComBoxes() {
 
 	}
 

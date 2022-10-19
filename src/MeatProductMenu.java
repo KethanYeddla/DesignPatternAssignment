@@ -1,5 +1,3 @@
-package src;
-
 public class MeatProductMenu implements ProductMenu {
 
 	public void showMenu() {

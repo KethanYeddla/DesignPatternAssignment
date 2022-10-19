@@ -1,4 +1,4 @@
-package src;
+import java.io.IOException;
 
 public class Facade {
 
@@ -12,8 +12,8 @@ public class Facade {
 
 	private Person thePerson;
 
-	public boolean login() {
-		return false;
+	public boolean login() throws IOException {
+	return false;
 	}
 
 	public void addTrading() {

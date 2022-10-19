@@ -1,5 +1,3 @@
-package src;
-
 public class ClassProductList {
 
 	private ReminderVisitor reminderVisitor;

@@ -1,8 +1,8 @@
-package src;
+
 
 public interface ProductMenu {
 
-	private Person person;
+	Person person = null;
 
 	public abstract void showMenu();
 
