@@ -1,4 +1,5 @@
 import java.io.IOException;
+import java.util.Scanner;
 
 public class Facade {
 
@@ -13,7 +14,8 @@ public class Facade {
 	private Person thePerson;
 
 	public boolean login() throws IOException {
-	return false;
+		Login credentials = new Login();
+		return credentials.login();
 	}
 
 	public void addTrading() {
@@ -46,6 +48,7 @@ public class Facade {
 
 	public void createProductList() {
 
+
 	}
 
 	public void AttachProductToUser() {
@@ -53,11 +56,28 @@ public class Facade {
 	}
 
 	public Product SelectProduct() {
+
 		return null;
 	}
 
 	public void productOperation() {
 
 	}
+	public void viewOffering() throws IOException {
+		System.out.println("Select Product Category");
+		System.out.println("0: Meat \n1: Produce");
+		Scanner s = new Scanner(System.in);
+		nProductCategory = s.nextInt();
+		if(nProductCategory == 0){
+			new MeatProductMenu().showMenu();
+		}
+		else if(nProductCategory==1) {
+			new ProduceProductMenu().showMenu();
+		}
+		else {
+			System.out.println("Incorrect input");
+		}
 
+
+	}
 }
