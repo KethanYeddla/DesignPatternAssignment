@@ -3,6 +3,8 @@ import java.util.Scanner;
 
 public class Facade {
 
+	private String loggedInUser;
+
 	private int UserType;
 
 	private Product theSelectedProduct;
@@ -18,10 +20,13 @@ public class Facade {
 	}
 
 	public boolean login() throws IOException {
+		boolean is_success;
 		Login credentials = new Login();
 		if (credentials.userType == 1) thePerson = new Seller();
 		else thePerson = new Buyer();
-		return credentials.login();
+		is_success=credentials.login();
+		loggedInUser = credentials.userName;
+		return is_success;
 	}
 
 	public void addTrading() {
@@ -29,7 +34,15 @@ public class Facade {
 	}
 
 	public void viewTrading() {
+		System.out.println(".................//** Visitor Pattern Implementation **//.........................");
+		Trading t = new Trading(this);
 
+		ReminderVisitor rv = new ReminderVisitor();
+		try {
+			rv.visitTrading(t, loggedInUser);
+		} catch (IOException ex) {
+			System.out.println(ex.getMessage());
+		}
 	}
 
 	public void decideBidding() {
@@ -69,7 +82,7 @@ public class Facade {
 		allProds.showMenu(this);
 	}
 	void createProductList() throws IOException {
-		System.out.println("\n //**Factory Pattern Implementation/**//");
+		System.out.println("\n .................//**Factory Pattern Implementation/**//................\n");
 		this.theProductList = new ClassProductList();
 		this.theProductList.loadFromFile();
 	}

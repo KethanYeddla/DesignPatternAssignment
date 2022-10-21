@@ -5,9 +5,9 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) throws IOException {
         Facade facade = new Facade();
-        System.out.println("//** Facade Pattern Implementation **//");
+        System.out.println(".............//** Facade Pattern Implementation **//................");
         if (facade.login()) {
-            System.out.println("//**Bridge Pattern Implementation**//");
+            System.out.println("...................//**Bridge Pattern Implementation**//..................");
             do {
                 System.out.println();
                 System.out.println("What do you want to do?");

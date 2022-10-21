@@ -1,4 +1,8 @@
-
+import java.awt.event.ActionListener;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
 
 public class ReminderVisitor extends NodeVisitor {
 
@@ -10,7 +14,16 @@ public class ReminderVisitor extends NodeVisitor {
 
 	}
 
-	public void visitTrading(Trading trading) {
+	public void visitTrading(Trading trading, String loggedInUser) throws IOException {
+		File file = new File("./src/UserProduct.txt");
+		BufferedReader br = new BufferedReader(new FileReader(file));
+		String line;
+		while ((line = br.readLine()) != null) {
+			String[] split = line.split(":");
+			if (split[0].equals(loggedInUser)) {
+				System.out.println(split[1]);
+			}
+		}
 
 	}
 

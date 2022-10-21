@@ -8,6 +8,7 @@ import javax.swing.*;
 
 public class Login  extends JFrame implements ActionListener {
     int userType;
+    String userName;
     public boolean login() throws IOException{
         Scanner s = new Scanner(System.in);
         System.out.println("Select the type of user");
@@ -32,6 +33,7 @@ public class Login  extends JFrame implements ActionListener {
             System.out.println("Enter Password");
             String Password = s.nextLine();
             if (users.containsKey(Username) && users.get(Username).equals(Password)) {
+                this.userName = Username;
                 return true;
             } else {
                 System.out.print("Invalid Credentials");
