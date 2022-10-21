@@ -1,11 +1,8 @@
-import java.io.FileNotFoundException;
 import java.io.IOException;
 
-public interface ProductMenu {
+public abstract interface ProductMenu {
 
-	Person person = null;
-
-	public abstract void showMenu() throws IOException;
+	public void showMenu(Facade facade);
 
 	public abstract void showAddButton();
 

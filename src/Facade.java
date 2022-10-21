@@ -9,12 +9,18 @@ public class Facade {
 
 	private int nProductCategory;
 
-	private ClassProductList theProductList;
+	public ClassProductList theProductList;
 
 	private Person thePerson;
 
+	public Facade() {
+		this.theProductList = new ClassProductList();
+	}
+
 	public boolean login() throws IOException {
 		Login credentials = new Login();
+		if (credentials.userType == 1) thePerson = new Seller();
+		else thePerson = new Buyer();
 		return credentials.login();
 	}
 
@@ -46,11 +52,6 @@ public class Facade {
 
 	}
 
-	public void createProductList() {
-
-
-	}
-
 	public void AttachProductToUser() {
 
 	}
@@ -64,20 +65,11 @@ public class Facade {
 
 	}
 	public void viewOffering() throws IOException {
-		System.out.println("Select Product Category");
-		System.out.println("0: Meat \n1: Produce");
-		Scanner s = new Scanner(System.in);
-		nProductCategory = s.nextInt();
-		if(nProductCategory == 0){
-			new MeatProductMenu().showMenu();
-		}
-		else if(nProductCategory==1) {
-			new ProduceProductMenu().showMenu();
-		}
-		else {
-			System.out.println("Incorrect input");
-		}
-
-
+		ProductMenu allProds  = thePerson.CreateProductMenu();
+		allProds.showMenu(this);
+	}
+	void createProductList() throws IOException {
+		this.theProductList = new ClassProductList();
+		this.theProductList.loadFromFile();
 	}
 }

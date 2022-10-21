@@ -1,20 +1,26 @@
-
+import java.util.Scanner;
 
 public class Seller extends Person {
 
-	private Buyer buyer;
 
-	public void showMenu() {
+    @Override
+    void showMenu() {
 
-	}
+    }
 
-	@Override
-	public void showComBoxes() {
-
-	}
-
-	public ProductMenu CreateProductMenu() {
-		return null;
-	}
-
+    @Override
+    ProductMenu CreateProductMenu() {
+        while (true) {
+            System.out.println("Select the type  of the product");
+            Scanner s = new Scanner(System.in);
+            String productType = s.nextLine();
+            if (productType.equals("meat")) {
+                return new MeatProductMenu();
+            } else if (productType.equals("produce")) {
+                return new ProduceProductMenu();
+            } else {
+                System.out.println("Invalid Product Type");
+            }
+        }
+    }
 }

@@ -2,10 +2,12 @@ import java.io.IOException;
 
 public class Main {
     public static void main(String[] args) throws IOException {
-        Facade facade  = new Facade();
-        if(facade.login()){
+        Facade facade = new Facade();
+        if (facade.login()) {
+            facade.createProductList();
             facade.viewOffering();
-        };
+        }
+        ;
 
     }
 }

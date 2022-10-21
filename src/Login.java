@@ -16,6 +16,7 @@ public class Login  extends JFrame implements ActionListener {
         System.out.println("PLease select the Usertype: \n 0 -> Buyer \n 1 -> Seller");
         userType = s.nextInt();
         s.nextLine();
+
         if (userType == 0) {
             File file = new File("./src/BuyerInfo.txt");
             BufferedReader br
@@ -39,7 +40,8 @@ public class Login  extends JFrame implements ActionListener {
                 System.exit(1);
                 return false;
             }
-            } else {
+            }
+        else {
             File file = new File("./src/SellerInfo.txt");
             BufferedReader br
                     = new BufferedReader(new FileReader(file));
@@ -47,7 +49,7 @@ public class Login  extends JFrame implements ActionListener {
             Map<String, String> users = new HashMap<>();
 
             while ((st = br.readLine()) != null) {
-                String[] usercredsplit = st.split(" ");
+                String[] usercredsplit = st.split(":");
                 users.put(usercredsplit[0], usercredsplit[1]);
                 System.out.println(usercredsplit);
             }

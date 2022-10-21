@@ -1,40 +1,40 @@
 import java.io.*;
+import java.util.ListIterator;
 
 public class MeatProductMenu implements ProductMenu {
 
-	public void showMenu() throws IOException {
-		File file = new File("./src/ProductInfo.txt");
-		BufferedReader br
-				= new BufferedReader(new FileReader(file));
-		String st;
-		System.out.println("Meat Menu");
-		while ((st = br.readLine()) != null) {
-			String[] usercredsplit = st.split(":");
-			if (usercredsplit[0].equals("Meat")) {
-				System.out.println(usercredsplit[1]);
-			}
-		}
+    public void showMenu(Facade facade) {
+        System.out.println("Meat Menu");
+        int num = 1;
+        ProductIterator iterator = facade.theProductList.getProductIterator();
+        while (iterator.hasNext()) {
+            Product p = (Product) iterator.next();
+            if (p.category.equals("Meat")) {
+                System.out.println(num + " : " + p.name);
+                num++;
+            }
+        }
+    }
 
-	}
 
-	public void showAddButton() {
+    public void showAddButton() {
 
-	}
+    }
 
-	public void showViewButton() {
+    public void showViewButton() {
 
-	}
+    }
 
-	public void showRadioButton() {
+    public void showRadioButton() {
 
-	}
+    }
 
-	public void showLabels() {
+    public void showLabels() {
 
-	}
+    }
 
-	public void showComBoxes() {
+    public void showComBoxes() {
 
-	}
+    }
 
 }
