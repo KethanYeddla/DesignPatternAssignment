@@ -5,15 +5,13 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 import javax.swing.*;
-import java.awt.*;
-import java.awt.event.*;
-import java.lang.Exception;
 
 public class Login  extends JFrame implements ActionListener {
     int userType;
     public boolean login() throws IOException{
         Scanner s = new Scanner(System.in);
-        System.out.println("PLease select the Usertype: \n 0 -> Buyer \n 1 -> Seller");
+        System.out.println("Select the type of user");
+        System.out.println("0 -> Buyer \n1 -> Seller");
         userType = s.nextInt();
         s.nextLine();
 
@@ -51,10 +49,8 @@ public class Login  extends JFrame implements ActionListener {
             while ((st = br.readLine()) != null) {
                 String[] usercredsplit = st.split(":");
                 users.put(usercredsplit[0], usercredsplit[1]);
-                System.out.println(usercredsplit);
             }
-
-            System.out.println("Enter Username");
+            System.out.println("Enter Username:");
             String Username = s.nextLine();
             System.out.println("Enter Password");
             String Password = s.nextLine();
@@ -71,6 +67,5 @@ public class Login  extends JFrame implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-
     }
 }

@@ -11,7 +11,8 @@ public class Seller extends Person {
     @Override
     ProductMenu CreateProductMenu() {
         while (true) {
-            System.out.println("Select the type  of the product");
+            System.out.println();
+            System.out.println("Select the type  of the product -meat- or -produce- ");
             Scanner s = new Scanner(System.in);
             String productType = s.nextLine();
             if (productType.equals("meat")) {

@@ -1,18 +1,18 @@
 public class ProduceProductMenu implements ProductMenu {
 
 	public void showMenu(Facade facade)  {
+		System.out.println("//** Implementation of Iterator **//");
 		System.out.println("Produce Menu");
 		int num = 1;
 		ProductIterator iterator = facade.theProductList.getProductIterator();
 		while (iterator.hasNext()) {
 			Product p = (Product) iterator.next();
-			if (p.category.equals("Meat")) {
+			if (p.category.equals("produce")) {
 				System.out.println(num + " : " + p.name);
 				num++;
 			}
 		}
 	}
-
 	public void showAddButton() {
 
 	}

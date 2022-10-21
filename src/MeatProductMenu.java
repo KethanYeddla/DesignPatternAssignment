@@ -4,6 +4,7 @@ import java.util.ListIterator;
 public class MeatProductMenu implements ProductMenu {
 
     public void showMenu(Facade facade) {
+        System.out.println("//** Implementation of Iterator **//");
         System.out.println("Meat Menu");
         int num = 1;
         ProductIterator iterator = facade.theProductList.getProductIterator();

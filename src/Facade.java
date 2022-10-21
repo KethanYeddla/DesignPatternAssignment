@@ -69,7 +69,10 @@ public class Facade {
 		allProds.showMenu(this);
 	}
 	void createProductList() throws IOException {
+		System.out.println("\n //**Factory Pattern Implementation/**//");
 		this.theProductList = new ClassProductList();
 		this.theProductList.loadFromFile();
 	}
+
+
 }
