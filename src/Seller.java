@@ -2,12 +2,9 @@ import java.util.Scanner;
 
 public class Seller extends Person {
 
-
     @Override
     void showMenu() {
-
     }
-
     @Override
     ProductMenu CreateProductMenu() {
         while (true) {

@@ -18,7 +18,8 @@ public class Facade {
 	public Facade() {
 		this.theProductList = new ClassProductList();
 	}
-
+	//implemented the Bridge pattern here
+	// This function returns true on successful login of the user
 	public boolean login() throws IOException {
 		boolean is_success;
 		Login credentials = new Login();
@@ -32,7 +33,8 @@ public class Facade {
 	public void addTrading() {
 
 	}
-
+	// Visitor pattern is implemented here
+	// THis functin is used to return the products which can be traded
 	public void viewTrading() {
 		System.out.println(".................//** Visitor Pattern Implementation **//.........................");
 		Trading t = new Trading(this);
@@ -81,6 +83,8 @@ public class Facade {
 		ProductMenu allProds  = thePerson.CreateProductMenu();
 		allProds.showMenu(this);
 	}
+	//Factory pattern is implemented here
+	//It is used to load the Products
 	void createProductList() throws IOException {
 		System.out.println("\n .................//**Factory Pattern Implementation/**//................\n");
 		this.theProductList = new ClassProductList();

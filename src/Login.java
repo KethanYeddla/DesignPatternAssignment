@@ -5,7 +5,8 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 import javax.swing.*;
-
+//Using this we are authenticating the login credentials
+// Using this we are knowing whether the user is known or not
 public class Login  extends JFrame implements ActionListener {
     int userType;
     String userName;
@@ -15,7 +16,10 @@ public class Login  extends JFrame implements ActionListener {
         System.out.println("0 -> Buyer \n1 -> Seller");
         userType = s.nextInt();
         s.nextLine();
-
+        // Implementation of Facade Pattern
+        // Dividing the UserType based on the input
+        // If userType is '0' then user is a Buyer
+        //If userType is '1' then user is a seller
         if (userType == 0) {
             File file = new File("./src/BuyerInfo.txt");
             BufferedReader br
@@ -28,10 +32,13 @@ public class Login  extends JFrame implements ActionListener {
                 users.put(usercredsplit[0], usercredsplit[1]);
             }
 
+            //Getting login credentials from the user
+            //Bridge pattern is implemented here
             System.out.println("Enter Username");
             String Username = s.nextLine();
             System.out.println("Enter Password");
             String Password = s.nextLine();
+            // Verifying the login credentials from the given input
             if (users.containsKey(Username) && users.get(Username).equals(Password)) {
                 this.userName = Username;
                 return true;
@@ -43,8 +50,7 @@ public class Login  extends JFrame implements ActionListener {
             }
         else {
             File file = new File("./src/SellerInfo.txt");
-            BufferedReader br
-                    = new BufferedReader(new FileReader(file));
+            BufferedReader br = new BufferedReader(new FileReader(file));
             String st;
             Map<String, String> users = new HashMap<>();
 
@@ -56,6 +62,7 @@ public class Login  extends JFrame implements ActionListener {
             String Username = s.nextLine();
             System.out.println("Enter Password");
             String Password = s.nextLine();
+            // Verifying the login credentials from the given input
             if (users.containsKey(Username) && users.get(Username).equals(Password)) {
                 System.out.println("Logged in");
                 return true;
